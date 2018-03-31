@@ -1,0 +1,25 @@
+$logo-width: 240px;
+$logo-height: 24px;
+.logo {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 0;
+    position: relative;
+    width: $logo-width;
+    padding: 0;
+    text-align: left;
+    color: $BCL;
+    line-height: $logo-height;
+    height: $logo-height;
+    white-space: nowrap;
+
+    &__word {
+        display: inline-block;
+        font-size: $logo-height;
+    }
+    &__dot {
+        color: $RCL;
+        font-size: $logo-height * 2;
+        line-height: 0;
+    }
+}

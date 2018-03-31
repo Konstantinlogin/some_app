@@ -1,0 +1,11 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: $HEADER_HEIGHT;
+    border-bottom: 4px solid $GCL;
+    &__logo {
+        padding-left: 12px;
+        padding-left: $PAD_DEF;
+    }
+}

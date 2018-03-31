@@ -1,0 +1,63 @@
+.menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: $MENU_HEIGHT;
+    line-height: $MENU_HEIGHT;
+    &__item {
+        margin-right: $PAD_DEF;
+        text-decoration: none;
+        color: $BCL;
+        position: relative;
+        white-space: nowrap;
+        &:last-of-type {
+            margin-right: 0;
+        }
+        &:hover {
+            &:after {
+                content: '';
+                bottom: -4px;
+                height: 4px;
+                position: absolute;
+                left: 0;
+                background-color: $RCL;
+                width: 100%;
+                opacity: 0.4;
+            }
+        }
+        &.is-active {
+            font-weight: 600;
+            &:after {
+                content: '';
+                bottom: -4px;
+                height: 4px;
+                position: absolute;
+                left: 0;
+                background-color: $RCL;
+                width: 100%;
+            }
+            &:hover {
+                &:after {
+                    opacity: 1;
+                }
+            } 
+        }
+    }
+    &__link {
+        display: block;
+        line-height: $HEADER_HEIGHT;
+        height: $HEADER_HEIGHT;
+        text-decoration: none;
+        color: $BCL;
+        padding-right: $PAD_HALF;
+        padding-left: $PAD_HALF;
+    }
+    &__ic-home {
+        display: block;
+        width: 24px;
+        height: 24px;
+        background: url('../images/ic_home.svg') no-repeat center;
+        background-size: contain;
+    }
+}
