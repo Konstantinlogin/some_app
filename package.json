@@ -1,5 +1,5 @@
 {
-  "name": "webpack-build",
+  "name": "portfolka",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -47,7 +47,9 @@
     "url-loader": "^1.0.1",
     "file-loader": "^1.1.11",
     "webpack-cleanup-plugin": "^0.5.1",
-    "webpack-auto-clean-build-plugin": "^1.0.4"
+    "webpack-auto-clean-build-plugin": "^1.0.4",
+    "vue": "^2.5.16",
+    "vue-loader": "^9.7.0"
   },
   "dependencies": {
     "jquery": "^3.2.1",

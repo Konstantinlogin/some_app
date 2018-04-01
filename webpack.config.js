@@ -23,7 +23,7 @@ const babelSettings = {
 let webpack_path = [
     {
         entry: {
-            main: path.resolve(__dirname, './source/js/project.js')
+            main: path.resolve(__dirname, './source/app/project.js')
         },
         output: {
             filename: './js/project.js',
@@ -37,12 +37,6 @@ let webpack_path = [
 
 
 let plugins = [
-    // new webpack.ProvidePlugin({
-    //     $: 'jquery',
-    //     jQuery: 'jquery',
-    //     jquery: 'jquery'
-    // }),
-
     new CopyWebpackPlugin([
         {
             from: 'source/images',
@@ -105,50 +99,61 @@ let baseConfig = {
         aggregateTimeout: 100
     },
     module: {
-        rules: [{
-            test: /\.js$/,
-            include: [
-                path.resolve(__dirname, './source'),
-            ],
-            use: [
-                {
-                    loader: 'babel-loader?' + JSON.stringify(babelSettings)
+        rules: [
+            {
+                test: /\.vue$/,
+                include: [
+                    path.resolve(__dirname, './source'),
+                ],
+                loader: 'vue-loader',
+                options: {
+                    // vue-loader options go here
                 }
-            ]
-        }, {
-            test: /\.ts$/,
-            include: [
-                path.resolve(__dirname, './source'),
-            ],
-            use: [
-                {
-                    loader: 'babel-loader?' + JSON.stringify(babelSettings)
-                },
-                {
-                    loader: 'awesome-typescript-loader'
-                }
-            ]
-        }, {
-            test: /\.sass$/,
-            use: ExtractTextPlugin.extract({
-                use: [{
-                    loader: 'css-loader', options: {
-                        sourceMap: true
+            },
+            {
+                test: /\.js$/,
+                include: [
+                    path.resolve(__dirname, './source'),
+                ],
+                use: [
+                    {
+                        loader: 'babel-loader?' + JSON.stringify(babelSettings)
                     }
-                }, {
-                    loader: 'sass-loader', options: {
-                        sourceMap: true
+                ]
+            }, {
+                test: /\.ts$/,
+                include: [
+                    path.resolve(__dirname, './source'),
+                ],
+                use: [
+                    {
+                        loader: 'babel-loader?' + JSON.stringify(babelSettings)
+                    },
+                    {
+                        loader: 'awesome-typescript-loader'
                     }
-                }],
-                fallback: 'style-loader'
-            })
-        }, {
-            test: /\.(jpe?g|png|gif|svg)$/i,
-            use: ['file-loader?name=/images/[name].[ext]']
-        }, {
-            test: /\.(ttf|eot|woff|woff2)$/,
-            use: ['file-loader?name=../fonts/[name].[ext]']
-        }]
+                ]
+            }, {
+                test: /\.sass$/,
+                use: ExtractTextPlugin.extract({
+                    use: [{
+                        loader: 'css-loader', options: {
+                            sourceMap: true
+                        }
+                    }, {
+                        loader: 'sass-loader', options: {
+                            sourceMap: true
+                        }
+                    }],
+                    fallback: 'style-loader'
+                })
+            }, {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                use: ['file-loader?name=/images/[name].[ext]']
+            }, {
+                test: /\.(ttf|eot|woff|woff2)$/,
+                use: ['file-loader?name=../fonts/[name].[ext]']
+            }]
     },
     plugins: plugins
 };
